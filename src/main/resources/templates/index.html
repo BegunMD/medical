@@ -143,16 +143,59 @@
                 </table>
                 <p></p>
                 <div style="text-align: center"><input type="submit" id="searchButton" value="Получить результат" class="button" style="padding:8px 30px"/></div>
-                <span th:if="${#fields.hasErrors('age')}" th:errors="*{age}" class="error"></span>
-                <span th:if="${#fields.hasErrors('IN')}" th:errors="*{IN}" class="error"></span>
-                <span th:if="${#fields.hasErrors('time')}" th:errors="*{time}" class="error"></span>
-                <span th:if="${#fields.hasErrors('vision')}" th:errors="*{vision}" class="error"></span>
-                <span th:if="${#fields.hasErrors('refractionWithoutC')}" th:errors="*{refractionWithoutC}" class="error"></span>
-                <span th:if="${#fields.hasErrors('correction')}" th:errors="*{correction}" class="error"></span>
-                <span th:if="${#fields.hasErrors('refractionWithC')}" th:errors="*{refractionWithC}" class="error"></span>
-                <span th:if="${#fields.hasErrors('OOA')}" th:errors="*{OOA}" class="error"></span>
-                <span th:if="${#fields.hasErrors('OOAminus')}" th:errors="*{OOAminus}" class="error"></span>
-                <span th:if="${#fields.hasErrors('OOAplus')}" th:errors="*{OOAplus}" class="error"></span>
+                <table>
+                    <tbody>
+                    <tr>
+                        <td>
+                            <span th:if="${#fields.hasErrors('age')}" th:errors="*{age}" class="error"></span>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <span th:if="${#fields.hasErrors('IN')}" th:errors="*{IN}" class="error"></span>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <span th:if="${#fields.hasErrors('time')}" th:errors="*{time}" class="error"></span>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <span th:if="${#fields.hasErrors('vision')}" th:errors="*{vision}" class="error"></span>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <span th:if="${#fields.hasErrors('refractionWithoutC')}" th:errors="*{refractionWithoutC}" class="error"></span>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <span th:if="${#fields.hasErrors('correction')}" th:errors="*{correction}" class="error"></span>
+                        </td>
+                    </tr> <tr>
+                        <td>
+                            <span th:if="${#fields.hasErrors('refractionWithC')}" th:errors="*{refractionWithC}" class="error"></span>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <span th:if="${#fields.hasErrors('OOA')}" th:errors="*{OOA}" class="error"></span>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <span th:if="${#fields.hasErrors('OOAminus')}" th:errors="*{OOAminus}" class="error"></span>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <span th:if="${#fields.hasErrors('OOAplus')}" th:errors="*{OOAplus}" class="error"></span>
+                        </td>
+                    </tr>
+                    </tbody>
+                </table>
             </form>
 
 
