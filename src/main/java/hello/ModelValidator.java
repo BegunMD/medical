@@ -27,11 +27,16 @@ public class ModelValidator {
         ValidationUtils.rejectIfEmptyOrWhitespace(errors, "refractionWithoutC", "refractionWithoutC.empty", "Необходимо заполнить рефракцию без циклоплегии до лечения.\n");
         ValidationUtils.rejectIfEmptyOrWhitespace(errors, "vision", "vision.empty", "Необходимо заполнить острота зрения до лечения.\n");
         ValidationUtils.rejectIfEmptyOrWhitespace(errors, "time", "time.empty", "Необходимо заполнить длительность заболевания.\n");
-        if(!isInteger(""+form.getAge())) errors.rejectValue("age", "age.notValid", "Возраст начала заболевания должен быть целым числом.\n");
-        if(!isInteger(""+form.getTime())) errors.rejectValue("time", "time.notValid", "Длительность заболевания должна быть целым числом.\n");
-        if(!isFloat(""+form.getIN())) errors.rejectValue("IN", "IN.notValid", "Индекс напряженности должен быть целым числом.\n");
-        if(!isFloat(""+form.getOOAminus())) errors.rejectValue("OOAminus", "OOAminus.notValid", "Индекс напряженности должен быть целым числом.\n");
-        if(!isFloat(""+form.getOOAplus())) errors.rejectValue("OOAminus", "OOAminus.notValid", "Индекс напряженности должен быть целым числом.\n");
+        if(!isInteger(form.getAge())) errors.rejectValue("age", "age.notValid", "Возраст начала заболевания должен быть целым числом.\n");
+        if(!isInteger(form.getTime())) errors.rejectValue("time", "time.notValid", "Длительность заболевания должна быть целым числом.\n");
+        if(!isFloat(form.getIN())) errors.rejectValue("IN", "IN.notValid", "Индекс напряженности должен быть числом.\n");
+        if(!isFloat(form.getOOAminus())) errors.rejectValue("OOAminus", "OOAminus.notValid", "Значение ООА\"-\" должно быть числом.\n");
+        if(!isFloat(form.getOOAplus())) errors.rejectValue("OOAplus", "OOAplus.notValid", "Значение ООА\"+\" должно быть числом.\n");
+        if(!isFloat(form.getOOA())) errors.rejectValue("OOA", "OOA.notValid", "Значение ООА должно быть числом.\n");
+        if(!isFloat(form.getCorrection())) errors.rejectValue("correction", "correction.notValid", "Значение коррекции до лечения должно быть числом.\n");
+        if(!isFloat(form.getRefractionWithC())) errors.rejectValue("refractionWithC", "refractionWithC.notValid", "Значение рефракции с циклоплегией должно быть числом.\n");
+        if(!isFloat(form.getRefractionWithoutC())) errors.rejectValue("refractionWithoutC", "refractionWithoutC.notValid", "Значение рефракции без циклоплегии должно быть числом.\n");
+        if(!isFloat(form.getVision())) errors.rejectValue("vision", "vision.notValid", "Значение остроты зрения должно быть числом.\n");
     }
 
     private static boolean isInteger(String s) throws NumberFormatException {
