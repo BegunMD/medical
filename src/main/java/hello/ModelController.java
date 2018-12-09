@@ -43,41 +43,17 @@ public class ModelController {
     }
 
     @RequestMapping(value = "count2", method = RequestMethod.POST)
-    public String count2(@ModelAttribute("modelForm") @Valid ModelForm form, Model model, BindingResult bindingResult) {
-//        searchFormValidator.validate(form, bindingResult);
-//        if (bindingResult.hasErrors()) return "search";
-//        //SearchDeliveryService searchDeliveryService = new SearchDeliveryService();
-//        //SearchDeliveryResults searchDeliveryResults = searchDeliveryService.doRequest(form);
-//        if (searchDeliveryResults.getResults().isEmpty()) return "search";
-//        model.addAttribute("results", searchDeliveryResults.toForm());
-//        if(searchDeliveryResults.getResults().size()==0) {
-//
-//            return "search";
-//        }
-//        SearchDeliveryResult r = getBestResult(searchDeliveryResults, form);
-//        model.addAttribute("name", form.getFrom());
-//        model.addAttribute("searchResultForm", new SearchResultForm(r.getDelivery(), r.getCost(), r.getDeliveryTime()));
-//        if (searchDeliveryResults.getResults().isEmpty()) return "search";
+    public String count2(@ModelAttribute("modelForm") ModelForm form, Model model, BindingResult bindingResult) {
+        modelFormValidator.validate(form, bindingResult);
+        if (bindingResult.hasErrors()) return "index2";
         model.addAttribute("result", form.count1());
         return "index2";
     }
 
     @RequestMapping(value = "count3", method = RequestMethod.POST)
-    public String count3(@ModelAttribute("modelForm") @Valid ModelForm form, Model model, BindingResult bindingResult) {
-//        searchFormValidator.validate(form, bindingResult);
-//        if (bindingResult.hasErrors()) return "search";
-//        //SearchDeliveryService searchDeliveryService = new SearchDeliveryService();
-//        //SearchDeliveryResults searchDeliveryResults = searchDeliveryService.doRequest(form);
-//        if (searchDeliveryResults.getResults().isEmpty()) return "search";
-//        model.addAttribute("results", searchDeliveryResults.toForm());
-//        if(searchDeliveryResults.getResults().size()==0) {
-//
-//            return "search";
-//        }
-//        SearchDeliveryResult r = getBestResult(searchDeliveryResults, form);
-//        model.addAttribute("name", form.getFrom());
-//        model.addAttribute("searchResultForm", new SearchResultForm(r.getDelivery(), r.getCost(), r.getDeliveryTime()));
-//        if (searchDeliveryResults.getResults().isEmpty()) return "search";
+    public String count3(@ModelAttribute("modelForm") ModelForm form, Model model, BindingResult bindingResult) {
+      modelFormValidator.validate(form, bindingResult);
+        if (bindingResult.hasErrors()) return "index3";
         model.addAttribute("result", form.count1());
         return "index3";
     }
