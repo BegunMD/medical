@@ -58,4 +58,20 @@ public class ModelController {
         return "index3";
     }
 
+    @RequestMapping(value = "count1", method = RequestMethod.GET)
+    public ModelAndView redirect() {
+        return new ModelAndView("index", "modelForm", new ModelForm());
+    }
+
+    @RequestMapping(value = "count2", method = RequestMethod.GET)
+    public ModelAndView redirect2() {
+        return new ModelAndView("index2", "modelForm", new ModelForm());
+    }
+
+    @RequestMapping(value = "count3", method = RequestMethod.GET)
+    public ModelAndView redirect3() {
+        return new ModelAndView("index3", "modelForm", new ModelForm());
+    }
+
+
 }
