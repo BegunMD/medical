@@ -1,0 +1,161 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Наша главная страница</title>
+    <meta content="text/html" charset="UTF-8"/>
+    <style type="text/css">
+        @import url("/StyleOfPages.css");
+    </style>
+</head>
+<body background="/Background.jpg">
+
+
+<!--Главное меню-->
+<div style="text-align: center;"><table cborder="0" cellpadding="0" cellspacing="0" class="mainMenu">
+    <tbody><tr>
+        <td><a class="button" href="/">Модель 1</a></td>
+        <td><a class="button" href="/index2">Модель 2</a></td>
+        <td><a class="button" href="/index3">Модель 3</a></td>
+    </tr>
+    </tbody></table></div>
+
+<!--Содержимое страницы-->
+<div class="content-area" data-reactid=".0.1.0.2.1">
+    <div class="content-area__bg" style="opacity:1;" data-reactid=".0.1.0.2.1.0"></div>
+    <div class="content-area__inner" data-reactid=".0.1.0.2.1.1">
+        <section data-reactid=".0.1.0.2.1.1.0">
+            <p class="Heat">Введите необходимые значения:</p>
+            <!--/*@thymesVar id="modelForm" type="hello.ModelForm"*/-->
+            <form action="count3" th:action="@{/count3}" th:object="${modelForm}" method="post" commandName="modelForm">
+                <table style="margin: auto">
+                    <tbody>
+                    <tr>
+                        <td>
+                            <div style="text-align: left"><label>Метод лечения: </label>
+                                <select name="method" th:field="*{method}" id="method">
+                                    <option th:value="false">Метод А</option>
+                                    <option th:value="true">Метод B</option>
+                                </select>
+                            </div>
+                        </td>
+                        <td>
+                            <div style="text-align: left"><label>Миопия: </label>
+                                <select name="myopia" th:field="*{myopia}" id="myopia">
+                                    <option th:value="1">Слабая</option>
+                                    <option th:value="2">Средняя</option>
+                                    <option th:value="3">Сильная</option>
+                                </select>
+                            </div>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <div style="text-align: left"><label>Тревожность: </label>
+                            <select name="anxiety" th:field="*{anxiety}" id="anxiety">
+                                <option th:value="1">Нормальный уровень</option>
+                                <option th:value="2">Субклинический уровень</option>
+                                <option th:value="3">Клинический уровень</option>
+                            </select>
+                            </div>
+                        </td>
+                        <td>
+                            <div style="text-align: left"><label>Вегетативный статус: </label>
+                            <select name="vegStatus" th:field="*{vegStatus}" id="vegStatus">
+                                <option th:value="1">Симпатикотония</option>
+                                <option th:value="2">Ваготония</option>
+                                <option th:value="3">Эутопия</option>
+                            </select>
+                            </div>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <div style="text-align: left"><label>Наличие наследственности: </label>
+                            <select name="heredity" th:field="*{heredity}" id="heredity">
+                                <option th:value="true">Да</option>
+                                <option th:value="false">Нет</option>
+                            </select>
+                            </div>
+                        </td>
+                        <td></td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <div class="inner_align"><label>Возраст начала заболевания:  </label>
+                            <input type="text" id="age" th:field="*{age}" maxlength="2" style="width: 70px"/>
+                            </div>
+                        </td>
+                        <td>
+                            <div class="inner_align"><label>Индекс напряженности: </label>
+                            <input type="text" id="IN" th:field="*{IN}" style="width: 70px"/>
+                            </div>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <div class="inner_align"><label>Длительность заболевания(количество лет): </label>
+                            <input type="text" id="time" th:field="*{time}" maxlength="2" style="width: 70px"/>
+                            </div>
+                        </td>
+                        <td>
+                            <div class="inner_align"><label>Острота зрения до лечения: </label>
+                            <input type="text" id="vision" th:field="*{vision}" style="width: 70px"/>
+                            </div>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <div class="inner_align"><label>Рефракция без циклоплегии до лечения: </label>
+                            <input type="text" id="refractionWithoutC;" th:field="*{refractionWithoutC}" style="width: 70px"/>
+                            </div>
+                        </td>
+                        <td>
+                            <div class="inner_align"><label>Коррекция до лечения: </label>
+                            <input type="text" id="correction" th:field="*{correction}" style="width: 70px"/>
+                            </div>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <div class="inner_align"><label>Рефракция c циклоплегией до лечения: </label>
+                            <input type="text" id="refractionWithC;" th:field="*{refractionWithC}" style="width: 70px"/>
+                            </div>
+                        </td>
+                        <td>
+                            <div class="inner_align"><label>ООА до лечения: </label>
+                            <input type="text" id="OOA" th:field="*{OOA}" style="width: 70px"/>
+                            </div>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <div class="inner_align"><label>ООА"-" до лечения: </label>
+                                <input type="text" id="OOAminus" th:field="*{OOAminus}" style="width: 70px"/>
+                            </div>
+                        </td>
+                        <td>
+                            <div class="inner_align"><label>ООА"+" до лечения: </label>
+                            <input type="text" id="OOAplus" th:field="*{OOAplus}" style="width: 70px"/>
+                            </div>
+                        </td>
+                    </tr>
+                    </tbody>
+                </table>
+                <p></p>
+                <div style="text-align: center"><input type="submit" id="searchButton" value="Получить результат" class="button" style="padding:8px 30px"/></div>
+            </form>
+
+            <table class="resultTable">
+                <tbody>
+                <tr>
+                    <td th:text="${result}"/>
+                </tr>
+                </tbody>
+            </table>
+        </section>
+    </div>
+</div>
+
+
+</body>
+</html>
