@@ -7,25 +7,25 @@ public class ModelForm {
     private int anxiety; //тревожность
     private int vegStatus;
     @NotNull
-    private Integer age;
+    private String age;
     @NotNull
-    private Integer time;
+    private String time;
     @NotNull
-    private Float IN;
+    private String IN;
     @NotNull
-    private Float vision;
+    private String vision;
     @NotNull
-    private Float correction;
+    private String correction;
     @NotNull
-    private Float refractionWithC;
+    private String refractionWithC;
     @NotNull
-    private Float refractionWithoutC;
+    private String refractionWithoutC;
     @NotNull
-    private Float OOA;
+    private String OOA;
     @NotNull
-    private Float OOAplus;
+    private String OOAplus;
     @NotNull
-    private Float OOAminus;
+    private String OOAminus;
     private boolean method;//false=A, true=B
     private boolean heredity;//наследственность
     private int model;
@@ -39,78 +39,78 @@ public class ModelForm {
     }
 
     public String count1(){
-        if(age<4) return "Оптимального метода нет";
+        if(toInt(age)<4) return "Оптимального метода нет";
         if(method){
             if(myopia<3) return "Оптимален метод B";
             return "Оптимального метода нет";
         }
         if(vegStatus>3){//эутопия
-            if(refractionWithoutC<=-4.125) return "Оптимального метода нет";
-            if(time<=9) return "Оптимален метод A";
+            if(toFloat(refractionWithoutC)<=-4.125) return "Оптимального метода нет";
+            if(toInt(time)<=9) return "Оптимален метод A";
             return "Оптимального метода нет";
         }
         if(!heredity) return "Оптимален метод A";
-        if(IN<=28.07) return "Оптимального метода нет";
-        if(OOA<=4.125) return "Оптимален метод А";
-        if(IN<=35.917) {
+        if(toFloat(IN)<=28.07) return "Оптимального метода нет";
+        if(toFloat(OOA)<=4.125) return "Оптимален метод А";
+        if(toFloat(IN)<=35.917) {
             if(anxiety<3) return "Оптимален метод A";
             return "Оптимального метода нет";
         }
-        if(time<10){
-            if(OOA<=7.625) return "Оптимального метода нет";
+        if(toInt(time)<10){
+            if(toFloat(OOA)<=7.625) return "Оптимального метода нет";
             return "Оптимален метод A";
         }
-        if(IN<=69.265) return "Оптимального метода нет";
+        if(toFloat(IN)<=69.265) return "Оптимального метода нет";
         return "Оптимален метод A";
     }
 
     public String count2(){
-        if(age<4){
-            if(IN<=199.95)return "Оптимального метода нет";
-            if(OOAminus<-3.375)  return "Оптимального метода нет";
+        if(toInt(age)<4){
+            if(toFloat(IN)<=199.95)return "Оптимального метода нет";
+            if(toFloat(OOAminus)<-3.375)  return "Оптимального метода нет";
         }
         if(method){
             if(myopia<3) return "Оптимален метод B";
             return "Оптимального метода нет";
         }
         if(vegStatus>3){//эутопия
-            if(refractionWithoutC<=-4.125){
-                if(OOAminus<=0.5)return "Оптимален метод A";
+            if(toFloat(refractionWithoutC)<=-4.125){
+                if(toFloat(OOAminus)<=0.5)return "Оптимален метод A";
                 return "Оптимального метода нет";
             }
-            if(OOAminus<=0.125) return "Оптимального метода нет";
+            if(toFloat(OOAminus)<=0.125) return "Оптимального метода нет";
             return "Оптимален метод A";
         }
-        if(time<3){
+        if(toInt(time)<3){
             if(heredity) {
-                if(correction<=0.375){
-                    if(time<2) return "Оптимален метод A";
+                if(toFloat(correction)<=0.375){
+                    if(toInt(time)<2) return "Оптимален метод A";
                     return "Оптимального метода нет";
                 }
                 return "Оптимального метода нет";
             }
-            if(OOA>7.625) return "Оптимален метод A";
-            if(OOAplus>1.125) return "Оптимального метода нет";
-            if(IN>34.793) return "Оптимален метод A";
+            if(toFloat(OOA)>7.625) return "Оптимален метод A";
+            if(toFloat(OOAplus)>1.125) return "Оптимального метода нет";
+            if(toFloat(IN)>34.793) return "Оптимален метод A";
             return "Оптимального метода нет";
         }
-        if(vision>0.225){
-            if(time<=11)return "Оптимального метода нет";
+        if(toFloat(vision)>0.225){
+            if(toInt(time)<=11)return "Оптимального метода нет";
             return "Оптимален метод A";
         }
-        if(vision<=0.125) return "Оптимального метода нет";
-        if(refractionWithC>-2.25) return "Оптимального метода нет";
+        if(toFloat(vision)<=0.125) return "Оптимального метода нет";
+        if(toFloat(refractionWithC)>-2.25) return "Оптимального метода нет";
         return "Оптимален метод A";
     }
 
     public String count3(){
-        if(age<4) return "Оптимального метода нет";
+        if(toInt(age)<4) return "Оптимального метода нет";
         if(method)return "Оптимален метод B";
         if(vegStatus>3){//эутопия
-            if(refractionWithoutC<=-4.125) return "Оптимального метода нет";
+            if(toFloat(refractionWithoutC)<=-4.125) return "Оптимального метода нет";
             return "Оптимален метод A";
         }
-        if(time>2.5) return "Оптимального метода нет";
+        if(toInt(time)>2.5) return "Оптимального метода нет";
         if(heredity) return "Оптимален метод A";
         return "Оптимального метода нет";
     }
@@ -139,85 +139,85 @@ public class ModelForm {
         return vegStatus;
     }
 
-    public void setAge(Integer age) {
+    public void setAge(String age) {
         this.age = age;
     }
 
-    public Integer getAge() {
+    public String getAge() {
         return age;
     }
 
-    public void setTime(Integer time) {
+    public void setTime(String time) {
         this.time = time;
     }
 
-    public Integer getTime() {
+    public String getTime() {
         return time;
     }
 
-    public void setIN(Float IN) {
+    public void setIN(String IN) {
         this.IN = IN;
     }
 
-    public Float getIN() {
+    public String getIN() {
         return IN;
     }
 
-    public void setVision(Float vision) {
+    public void setVision(String vision) {
         this.vision = vision;
     }
 
-    public Float getVision() {
+    public String getVision() {
         return vision;
     }
 
-    public void setCorrection(Float correction) {
+    public void setCorrection(String correction) {
         this.correction = correction;
     }
 
-    public Float getCorrection() {
+    public String getCorrection() {
         return  correction;
     }
 
-    public void setRefractionWithC(Float refractionWithC) {
+    public void setRefractionWithC(String refractionWithC) {
         this.refractionWithC = refractionWithC;
     }
 
-    public Float getRefractionWithC() {
+    public String getRefractionWithC() {
         return  refractionWithC;
     }
 
-    public void setRefractionWithoutC(Float refractionWithoutC) {
+    public void setRefractionWithoutC(String refractionWithoutC) {
         this.refractionWithoutC = refractionWithoutC;
     }
 
-    public Float getRefractionWithoutC() {
+    public String getRefractionWithoutC() {
         return  refractionWithoutC;
     }
 
-    public void setOOA(Float OOA) {
+    public void setOOA(String OOA) {
         this.OOA = OOA;
     }
 
 
-    public Float getOOA() {
+    public String getOOA() {
         return  OOA;
     }
 
 
-    public void setOOAplus(Float OOAplus) {
+    public void setOOAplus(String OOAplus) {
         this.OOAplus = OOAplus;
     }
 
-    public Float getOOAplus() {
+    public String getOOAplus() {
         return  OOAplus;
     }
 
-    public void setOOAminus(Float OOAminus) {
+    public void setOOAminus(String OOAminus) {
         this.OOAminus = OOAminus;
     }
 
-    public Float getOOAminus() {
+    public String getOOAminus() {
         return  OOAminus;
     }
 
@@ -244,5 +244,15 @@ public class ModelForm {
 
     public void setModel(int model) {
         this.model = model;
+    }
+
+    public static Integer toInt(String string){
+        Integer result = Integer.parseInt(string);
+        return result;
+    }
+
+    public static Float toFloat(String string){
+        Float result = Float.parseFloat(string);
+        return result;
     }
 }
